@@ -1,13 +1,16 @@
-import { getPortfolios } from "@/utils/fetch";
+import { getPortfolios } from "@/utils";
 import Image from "next/image";
 
 export async function PortfolioList() {
-  const { data: portfolios = [] } = await getPortfolios();
+  const portfolios = getPortfolios();
   return (
     <>
       <div className="content-section-title">Portfolios</div>
+      {portfolios.map((portfolio) => (
+        <div key={portfolio}>{portfolio}</div>
+      ))}
       <div className="content-list">
-        {portfolios.map((portfolio) => (
+        {/* {portfolios.map((portfolio) => (
           <div className="content-item" key={portfolio.id}>
             <div className="content-item_image-container">
               <Image
@@ -22,7 +25,7 @@ export async function PortfolioList() {
               <div>{portfolio.description}</div>
             </div>
           </div>
-        ))}
+        ))} */}
       </div>
     </>
   );

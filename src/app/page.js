@@ -5,13 +5,11 @@ import { Suspense } from "react";
 export default async function Home() {
   return (
     <>
-      <Suspense fallback={<div>Loading Blogs...</div>}>
-        <BlogList />
-      </Suspense>
+      <BlogList />
+
       <hr></hr>
-      <Suspense fallback={<div>Loading Portfolios...</div>}>
-        <PortfolioList />
-      </Suspense>
+
+      <PortfolioList />
     </>
   );
 }
