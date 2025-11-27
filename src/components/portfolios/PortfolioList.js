@@ -6,11 +6,9 @@ export async function PortfolioList() {
   return (
     <>
       <div className="content-section-title">Portfolios</div>
-      {portfolios.map((portfolio) => (
-        <div key={portfolio}>{portfolio}</div>
-      ))}
+
       <div className="content-list">
-        {/* {portfolios.map((portfolio) => (
+        {portfolios.map((portfolio) => (
           <div className="content-item" key={portfolio.id}>
             <div className="content-item_image-container">
               <Image
@@ -24,8 +22,9 @@ export async function PortfolioList() {
               <div>{portfolio.title}</div>
               <div>{portfolio.description}</div>
             </div>
+            {/* {portfolio.content} */}
           </div>
-        ))} */}
+        ))}
       </div>
     </>
   );

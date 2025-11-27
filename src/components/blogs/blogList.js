@@ -6,11 +6,9 @@ export function BlogList() {
   return (
     <>
       <div className="content-section-title">Blogs</div>
-      {blogs.map((blog) => (
-        <div key={blog}>{blog}</div>
-      ))}
+
       <div className="content-list ">
-        {/* {blogs.map((blog) => (
+        {blogs.map((blog) => (
           <div className="content-item" key={blog.id}>
             <div className="content-item_image-container">
               <Image
@@ -26,8 +24,9 @@ export function BlogList() {
               <div>{blog.title}</div>
               <div>{blog.description}</div>
             </div>
+            {/* {blog.content} */}
           </div>
-        ))} */}
+        ))}
       </div>
     </>
   );

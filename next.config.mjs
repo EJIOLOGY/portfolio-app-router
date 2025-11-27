@@ -20,6 +20,12 @@ const nextConfig = {
         port: "3001",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "thrangra.sirv.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };

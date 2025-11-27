@@ -1,18 +1,36 @@
 import path from "path";
 import fs from "fs";
+import matter from "gray-matter";
 
 const blogsDir = path.join(process.cwd(), "src", "content", "blogs");
 const portfoliosDir = path.join(process.cwd(), "src", "content", "portfolios");
 export function getBlogs() {
   const blogNames = fs.readdirSync(blogsDir);
 
-  // blogNames.map(name=> (){})
-  return blogNames;
+  const blogs = blogNames.map((name) => {
+    const filePath = path.join(blogsDir, name);
+    const fileContent = fs.readFileSync(filePath, "utf-8");
+
+    const { data, content } = matter(fileContent);
+
+    return { ...data, content };
+  });
+
+  return blogs;
 }
 
 export function getPortfolios() {
   const portfolioNames = fs.readdirSync(portfoliosDir);
-  return portfolioNames;
+
+  const portfolios = portfolioNames.map((name) => {
+    const filePath = path.join(portfoliosDir, name);
+    const fileContent = fs.readFileSync(filePath, "utf-8");
+
+    const { data, content } = matter(fileContent);
+
+    return { ...data, content };
+  });
+  return portfolios;
 }
 
 // Utility function to simulate a delay
